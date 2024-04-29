@@ -76,7 +76,7 @@ export function DataTable<TData, TValue>({
 						}
 					}}
 				/>
-				<Button className='' onClick={async () => {
+				<Button variant='ghost' onClick={async () => {
 					table.getColumn("name")?.setFilterValue(input)
 					input && await sendSearch(input)
 				}}>Search
