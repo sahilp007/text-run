@@ -12,7 +12,7 @@ interface PageProps {
 
 async function getData(): Promise<Pokimons[]> {
 
-	const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=20`);
+	const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=1025`);
 	const pokemons = response.data.results;
 
 	const data = await Promise.all(pokemons.map(async (pokemon: any, index: number) => {
