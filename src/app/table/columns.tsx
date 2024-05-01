@@ -2,7 +2,7 @@
 
 import {ColumnDef} from "@tanstack/react-table"
 import Image from "next/image";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown } from "lucide-react"
 import {Button} from "@/components/ui/button";
 
 export type Pokimons = {
