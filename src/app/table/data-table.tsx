@@ -140,7 +140,7 @@ export function DataTable<TData, TValue>({
 					</Table>
 				</div>
 
-					<DataTablePagination table={table} />
+				<DataTablePagination table={table}/>
 				<div className="flex items-center justify-between space-x-2 py-4">
 					{/*<Button*/}
 					{/*	variant="outline"*/}
