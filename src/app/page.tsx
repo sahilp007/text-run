@@ -41,5 +41,13 @@ const Page: FC = () => {
 		</div>
 	)
 }
-
+// TODO: BEAUTIFY THIS PAGE
+// TODO: ADD A LOADING SPINNER WHEN CREATING A ROOM
+// TODO: ADD A LOADING SPINNER WHEN LOADING API DATA AS SKELETON LOADING
+// TODO: REMOVE SELECT FROM THE APP                                                                             // DONE
+// TODO: DON'T SHOW THE NOTIFICATION OF SEARCH FOR THE SENDER                            // DONE
+// TODO: ADD THEMES TO THE APP
+// TODO: CHANGE SCROLLBAR TO A CUSTOM ONE
+// TODO: ADD POPUP WHEN A POKEMON IMAGE IS CLICKED TO SHOW A BIGGER IMAGE
+// TODO: ADD SORT TO COLS                                                                                                // DONE
 export default Page
