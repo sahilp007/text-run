@@ -4,6 +4,7 @@ import {useRouter} from 'next/navigation'
 import {FC} from 'react'
 import {Button} from "@/components/ui/button";
 import {Input} from "@/components/ui/input";
+import {createUser} from "@/lib/utils";
 
 const Page: FC = () => {
 	let roomIdInput = ''
@@ -13,10 +14,12 @@ const Page: FC = () => {
 		const res = await fetch('/api/rooms/create')
 		const roomId: string = await res.text()
 		router.push(`/room/${roomId}`)
+		await createUser();
 	}
 
 	const joinRoom = async (roomId: string) => {
         roomId && router.push(`/room/${roomId}`)
+		await createUser();
 	}
 
 	return (

@@ -18,6 +18,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import axios from "axios";
 import {DataTablePagination} from "@/components/ui/pagination";
+import {createUser} from "@/lib/utils";
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[]
@@ -35,8 +36,14 @@ export function DataTable<TData, TValue>({
 		[]
 	)
 	const [input, setInput] = useState('');
+
 	const sendSearch = async (text: string) => {
-		await axios.post('/api/message', {text, roomId});
+		let userId = localStorage.getItem('userId');
+		if(!userId) {
+			await createUser();
+			userId = localStorage.getItem('userId');
+		}
+		await axios.post('/api/message', {text, roomId, userId});
 		// setInput('');
 	}
 
