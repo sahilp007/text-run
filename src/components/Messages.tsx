@@ -13,12 +13,14 @@ interface MessagesProps {
 
 const Messages: FC<MessagesProps> = ({initialMessages, roomId}) => {
 	const [incomingMessages, setIncomingMessages] = useState<string[]>([])
-
+	const [lastMessageUserId, setLastMessageUserId] = useState<string>('')
 	useEffect(() => {
 		pusherClient.subscribe(roomId)
-
-		pusherClient.bind('incoming-message', (text: string) => {
+		pusherClient.bind('incoming-message', (text: any) => {
+			let userId = text.userId;
+			text = text.text;
 			setIncomingMessages((prev) => [...prev, text])
+			setLastMessageUserId(userId)
 		})
 
 		return () => {
@@ -27,8 +29,11 @@ const Messages: FC<MessagesProps> = ({initialMessages, roomId}) => {
 	}, [])
 
 	useEffect(() => {
-		incomingMessages[incomingMessages.length - 1] &&
-		toast(`Someone searched for ${incomingMessages[incomingMessages.length - 1]}`)
+		let userId = localStorage.getItem('userId');
+		if (lastMessageUserId != userId){
+			incomingMessages[incomingMessages.length - 1] &&
+			toast(`Someone searched for ${incomingMessages[incomingMessages.length - 1]}`)
+		}
 	}, [incomingMessages])
 
 	return (
